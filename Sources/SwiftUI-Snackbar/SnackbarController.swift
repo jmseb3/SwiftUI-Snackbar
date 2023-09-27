@@ -1,6 +1,6 @@
 //
 //  SnackbarController.swift
-//  
+//
 //
 //  Created by WonHee Jung on 2023/09/26.
 //
@@ -15,20 +15,20 @@ public class SnackbarController: ObservableObject {
     public func showSnackBar(
         message: String
     ) {
-        self.showSnackBar(message: message, label: nil ,duration: SnackbarDuration.Short,action: {})
+        self.showSnackBar(message: message, label: nil ,duration: SnackbarDuration.Short,action: nil)
     }
     
     public func showSnackBar(
         message: String,
         duration: SnackbarDuration = SnackbarDuration.Short
     ) {
-        self.showSnackBar(message: message, label: nil ,duration: duration,action: {})
+        self.showSnackBar(message: message, label: nil ,duration: duration,action: nil)
     }
     
     public func showSnackBar(
         message: String,
         label: String? = nil,
-        action:  @escaping () -> Void
+        action: SnackbarAction
     ) {
         self.showSnackBar(message: message, label: label ,duration: SnackbarDuration.Short,action: action)
     }
@@ -37,13 +37,13 @@ public class SnackbarController: ObservableObject {
         message: String,
         label: String? = nil,
         duration: SnackbarDuration = SnackbarDuration.Short,
-        action:  @escaping () -> Void
+        action: SnackbarAction?
     ) {
         self.snackbarItem = SnackBarItem(
             message: message,
             actionLabel: label,
             duration: duration,
-            performAction: action
+            action: action
         )
         resetTask()
     }
@@ -67,6 +67,7 @@ public class SnackbarController: ObservableObject {
     
     
     public func resetSnackBar() {
+        self.snackbarItem?.action?.onDismiss()
         self.snackbarItem = nil
     }
 }

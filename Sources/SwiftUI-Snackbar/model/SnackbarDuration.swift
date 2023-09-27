@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Snackbar Duration Time
 public enum SnackbarDuration {
     case Short
     case Long

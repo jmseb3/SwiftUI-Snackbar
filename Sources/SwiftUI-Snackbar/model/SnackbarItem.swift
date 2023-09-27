@@ -10,7 +10,7 @@ struct SnackBarItem {
     let message: String
     let actionLabel: String?
     let duration: SnackbarDuration
-    let performAction: () -> Void
+    let action: SnackbarAction?
     
     func toDelay() -> Int {
         switch duration {
