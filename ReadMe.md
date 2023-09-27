@@ -89,5 +89,5 @@ func showSnackBar(
 ~~~
 
 ## Result
-
+![스크린샷 2023-09-27 오전 11 10 50](https://github.com/jmseb3/SwiftUI-Snackbar/assets/63912638/89ef6945-8b14-45dc-8413-44ae74ed48d0)
 ## History
