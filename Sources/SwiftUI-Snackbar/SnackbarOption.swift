@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by WonHee Jung on 2023/09/27.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct SnackbarOption {
+public class SnackbarOption {
     public static let shared = SnackbarOption()
     private init() {}
     
@@ -20,4 +20,5 @@ public struct SnackbarOption {
     
     // snackbar label Color
     public var labelColor = Color.blue
+    
 }

@@ -94,7 +94,19 @@ func showSnackBar(
 ~~~
 
 ## ChangeOption
-
+~~~swift
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        //Change Color
+        SnackbarOption.shared.bgColor = Color.red
+        SnackbarOption.shared.textColor = Color.red
+        SnackbarOption.shared.labelColor = Color.red
+        return true
+    }
+    
+}
+~~~
 
 ## Result
 ![스크린샷 2023-09-27 오전 11 10 50](https://github.com/jmseb3/SwiftUI-Snackbar/assets/63912638/47208ac5-fab1-4f32-8417-7c65abefe011)
