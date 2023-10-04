@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct SnackbarOption {
+public class SnackbarOption {
     public static let shared = SnackbarOption()
     private init() {}
     
