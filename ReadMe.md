@@ -71,6 +71,11 @@ func showSnackBar(
 
 func showSnackBar(
     message: String,
+    dismissAction : @escaping () -> Void
+)
+
+func showSnackBar(
+    message: String,
     duration: SnackbarDuration = SnackbarDuration.Short
 )
 
@@ -88,7 +93,15 @@ func showSnackBar(
 )
 ~~~
 
+## ChangeOption
+
+
 ## Result
 ![스크린샷 2023-09-27 오전 11 10 50](https://github.com/jmseb3/SwiftUI-Snackbar/assets/63912638/47208ac5-fab1-4f32-8417-7c65abefe011)
 
 ## History
+- 0.0.2  
+add Color Option
+
+- 0.0.1  
+pre-Release

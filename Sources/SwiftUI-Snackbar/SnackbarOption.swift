@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct SnackbarOption {
-    static let shared = SnackbarOption()
+    public static let shared = SnackbarOption()
     private init() {}
     
     // snackbar Color
