@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by WonHee Jung on 2023/09/27.
 //
@@ -13,11 +13,23 @@ public struct SnackbarOption {
     private init() {}
     
     // snackbar Color
-    public var bgColor = Color(red: 37 / 255, green: 36 / 255, blue: 39 / 255)
+    var bgColor = Color(red: 37 / 255, green: 36 / 255, blue: 39 / 255)
     
     // snackbar TextColor
-    public var textColor = Color.white
+    var textColor = Color.white
     
     // snackbar label Color
-    public var labelColor = Color.blue
+    var labelColor = Color.blue
+    
+    public mutating func chnageBackgroundColor(color:Color) {
+        self.bgColor = color
+    }
+    
+    public mutating func chnageTextColor(color:Color) {
+        self.textColor = color
+    }
+    
+    public mutating func chnageLabelColor(color:Color) {
+        self.labelColor = color
+    }
 }
