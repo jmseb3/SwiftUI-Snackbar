@@ -21,6 +21,7 @@ struct SnackBarView: View {
                     Button(item.actionLabel!) {
                         item.action?.onPerformAction()
                     }
+                    .foregroundColor(SnackbarOption.shared.labelColor)
                 }
             }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 8))
         }
@@ -41,7 +42,7 @@ struct SnackBarView_Preview: PreviewProvider {
             )
             )
         .environmentObject(SnackbarController())
-        
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
     }
 }
 

@@ -15,5 +15,9 @@ public struct SnackbarOption {
     // snackbar Color
     var bgColor = Color(red: 37 / 255, green: 36 / 255, blue: 39 / 255)
     
+    // snackbar TextColor
     var textColor = Color.white
+    
+    // snackbar label Color
+    var labelColor = Color.blue
 }

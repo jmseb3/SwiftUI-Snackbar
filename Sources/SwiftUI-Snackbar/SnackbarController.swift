@@ -20,6 +20,16 @@ public class SnackbarController: ObservableObject {
     
     public func showSnackBar(
         message: String,
+        dismissAction : @escaping () -> Void
+    ) {
+        let dismissAction = DismissAction() {
+            dismissAction()
+        }
+        self.showSnackBar(message: message, label: nil ,duration: SnackbarDuration.Short,action: dismissAction)
+    }
+    
+    public func showSnackBar(
+        message: String,
         duration: SnackbarDuration = SnackbarDuration.Short
     ) {
         self.showSnackBar(message: message, label: nil ,duration: duration,action: nil)
@@ -48,7 +58,7 @@ public class SnackbarController: ObservableObject {
         resetTask()
     }
     
-    private var workItem: DispatchWorkItem? // Create a private DispatchWorkItem property
+    private var workItem: DispatchWorkItem?
     
     private func resetTask() {
         guard let item  = snackbarItem else {
@@ -57,7 +67,7 @@ public class SnackbarController: ObservableObject {
         workItem?.cancel()
         if (item.duration != SnackbarDuration.Indefinite) {
             let dispatchAfter = DispatchTimeInterval.seconds(item.toDelay())
-            workItem = DispatchWorkItem { // Set the work item with the block you want to execute
+            workItem = DispatchWorkItem {
                 self.resetSnackBar()
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter,execute: workItem!)
@@ -69,5 +79,21 @@ public class SnackbarController: ObservableObject {
     public func resetSnackBar() {
         self.snackbarItem?.action?.onDismiss()
         self.snackbarItem = nil
+    }
+    
+    private class DismissAction : SnackbarAction {
+        private var action : () -> Void
+        
+        init(action: @escaping () -> Void) {
+            self.action = action
+        }
+        
+        func onDismiss() {
+            action()
+        }
+        
+        func onPerformAction() {
+            
+        }
     }
 }
