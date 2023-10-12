@@ -16,14 +16,16 @@ struct SnackBarView: View {
             HStack {
                 Text(item.message)
                     .foregroundColor(SnackbarOption.shared.textColor)
+                    .font(.system(size: SnackbarOption.shared.textSize))
                 Spacer()
                 if(item.actionLabel != nil) {
                     Button(item.actionLabel!) {
                         item.action?.onPerformAction()
                     }
                     .foregroundColor(SnackbarOption.shared.labelColor)
+                    .font(.system(size: SnackbarOption.shared.labelSize))
                 }
-            }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 8))
+            }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
         .frame(minHeight: 48)
         .background(SnackbarOption.shared.bgColor)

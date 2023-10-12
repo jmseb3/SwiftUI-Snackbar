@@ -21,4 +21,11 @@ public class SnackbarOption {
     // snackbar label Color
     public var labelColor = Color.blue
     
+    // snackbar TextSize
+    public var textSize :CGFloat = 12
+    
+    // snackbar LabelSize
+    public var labelSize :CGFloat = 12
+
+    
 }

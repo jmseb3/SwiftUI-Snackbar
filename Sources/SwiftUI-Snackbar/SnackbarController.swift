@@ -12,12 +12,17 @@ public class SnackbarController: ObservableObject {
     
     @Published var snackbarItem : SnackBarItem? = nil
     
+    /**
+     Show SnackBar only msg
+     */
     public func showSnackBar(
         message: String
     ) {
         self.showSnackBar(message: message, label: nil ,duration: SnackbarDuration.Short,action: nil)
     }
-    
+    /**
+     Show SnackBar Msg with Dismiss Action
+     */
     public func showSnackBar(
         message: String,
         dismissAction : @escaping () -> Void
@@ -28,6 +33,9 @@ public class SnackbarController: ObservableObject {
         self.showSnackBar(message: message, label: nil ,duration: SnackbarDuration.Short,action: dismissAction)
     }
     
+    /**
+     Show SnackBar Msg with Duration
+     */
     public func showSnackBar(
         message: String,
         duration: SnackbarDuration = SnackbarDuration.Short

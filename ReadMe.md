@@ -102,6 +102,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         SnackbarOption.shared.bgColor = Color.red
         SnackbarOption.shared.textColor = Color.red
         SnackbarOption.shared.labelColor = Color.red
+        
+        //Change TextSize
+        SnackbarOption.shared.textSize = 15
+        SnackbarOption.shared.textSize = 12
+
         return true
     }
     
