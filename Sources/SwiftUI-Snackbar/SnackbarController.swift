@@ -45,6 +45,18 @@ public class SnackbarController: ObservableObject {
     
     public func showSnackBar(
         message: String,
+        label: String
+    ) {
+        let action = PerformAction {
+            
+        } performAction: {
+            self.resetTask(force: true)
+        }
+        self.showSnackBar(message: message, label: label ,duration:SnackbarDuration.Short,action: action)
+    }
+    
+    public func showSnackBar(
+        message: String,
         label: String? = nil,
         action: SnackbarAction
     ) {
@@ -68,11 +80,15 @@ public class SnackbarController: ObservableObject {
     
     private var workItem: DispatchWorkItem?
     
-    private func resetTask() {
+    private func resetTask(force:Bool = false) {
         guard let item  = snackbarItem else {
             return
         }
         workItem?.cancel()
+        if (force) {
+            self.resetSnackBar()
+            return
+        }
         if (item.duration != SnackbarDuration.Indefinite) {
             let dispatchAfter = DispatchTimeInterval.seconds(item.toDelay())
             workItem = DispatchWorkItem {
@@ -82,7 +98,6 @@ public class SnackbarController: ObservableObject {
         }
         
     }
-    
     
     public func resetSnackBar() {
         self.snackbarItem?.action?.onDismiss()
@@ -102,6 +117,27 @@ public class SnackbarController: ObservableObject {
         
         func onPerformAction() {
             
+        }
+    }
+    
+    private class PerformAction : SnackbarAction {
+        private var action : () -> Void
+        private var performAction : () -> Void
+        
+        init(
+            action: @escaping () -> Void,
+            performAction: @escaping () -> Void
+        ) {
+            self.action = action
+            self.performAction = performAction
+        }
+        
+        func onDismiss() {
+            action()
+        }
+        
+        func onPerformAction() {
+            performAction()
         }
     }
 }
