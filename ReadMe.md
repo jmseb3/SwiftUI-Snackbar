@@ -118,6 +118,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 ## History
 - 0.0.2  
+add TextSize Option
+
+- 0.0.2  
 add Color Option
 
 - 0.0.1  
