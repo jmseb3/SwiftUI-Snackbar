@@ -25,6 +25,7 @@ struct SnackBarView: View {
                     .foregroundColor(SnackbarOption.shared.labelColor)
                     .font(.system(size: SnackbarOption.shared.labelSize))
                 }
+                Spacer().frame(height: SnackbarOption.shared.bottomSpace)
             }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
         .frame(minHeight: 48)

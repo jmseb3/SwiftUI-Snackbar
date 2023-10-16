@@ -26,6 +26,9 @@ public class SnackbarOption {
     
     // snackbar LabelSize
     public var labelSize :CGFloat = 12
+    
+    // snackbar bottom Space
+    public var bottomSpace : CGFloat = 0
 
     
 }
