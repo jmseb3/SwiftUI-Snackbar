@@ -7,11 +7,14 @@ public struct SnackBarHost<Content: View>: View {
     
     @EnvironmentObject var snackbarController : SnackbarController
     private let content: () -> Content
+    private let botttomSpace : CGFloat
     
     public init(
-        @ViewBuilder content: @escaping () -> Content
+        @ViewBuilder content: @escaping () -> Content,
+        bottomSpace : CGFloat = 0
     ) {
         self.content = content
+        self.botttomSpace = bottomSpace
     }
     
     public var body: some View {
@@ -29,6 +32,7 @@ public struct SnackBarHost<Content: View>: View {
                         SnackBarView(item: item!).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
+                    Spacer().frame(height: botttomSpace)
                 }
                
             }
