@@ -10,8 +10,8 @@ public struct SnackBarHost<Content: View>: View {
     private let botttomSpace : CGFloat
     
     public init(
-        @ViewBuilder content: @escaping () -> Content,
-        bottomSpace : CGFloat = 0
+        bottomSpace : CGFloat = 0,
+        @ViewBuilder content: @escaping () -> Content
     ) {
         self.content = content
         self.botttomSpace = bottomSpace
