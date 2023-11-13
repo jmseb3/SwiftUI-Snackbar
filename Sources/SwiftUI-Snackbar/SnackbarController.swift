@@ -57,6 +57,19 @@ public class SnackbarController: ObservableObject {
     
     public func showSnackBar(
         message: String,
+        label: String,
+        perfromAction :@escaping () -> Void
+    ) {
+        let action = PerformAction {
+            
+        } performAction: {
+            perfromAction()
+        }
+        self.showSnackBar(message: message, label: label ,duration:SnackbarDuration.Short,action: action)
+    }
+    
+    public func showSnackBar(
+        message: String,
         label: String? = nil,
         action: SnackbarAction
     ) {
