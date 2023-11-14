@@ -30,11 +30,9 @@ public struct SnackBarHost<Content: View>: View {
                     VStack {
                         Spacer()
                         SnackBarView(item: item!).padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        Spacer().frame(height: botttomSpace)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
-                    Spacer().frame(height: botttomSpace)
-                }
-               
             }
         }
     }

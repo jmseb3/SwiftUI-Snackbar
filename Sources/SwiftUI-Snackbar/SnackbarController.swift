@@ -64,6 +64,7 @@ public class SnackbarController: ObservableObject {
             
         } performAction: {
             perfromAction()
+            self.resetTask(force: true)
         }
         self.showSnackBar(message: message, label: label ,duration:SnackbarDuration.Short,action: action)
     }
