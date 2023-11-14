@@ -33,6 +33,7 @@ public struct SnackBarHost<Content: View>: View {
                         Spacer().frame(height: botttomSpace)
                     }
                     .transition(AnyTransition.opacity.animation(.easeInOut))
+                }
             }
         }
     }
